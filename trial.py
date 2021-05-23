@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 from sklearn import datasets, linear_model
+import numpy as np
+from sklearn.linear_model import LinearRegression
 import seaborn as sns
 import os
 import csv
@@ -38,48 +40,28 @@ df = user_input_features()
 st.subheader('User Input parameters')
 st.write(df)
 
+
 excel = pd.ExcelFile("roboDataset.xlsx")
+prediction_percentages = [2.307, 4.803, 8.99, 0.611, 4.279, 0.436, 2.270, 0.611, 14.323, 19.126]
 predictions = []
 
 for i in range(1, 2):
     dataset = pd.DataFrame(pd.read_excel(excel, ('Sheet' + str(i))))
     dataset_x = dataset['x'].values.reshape(-1,1)
     dataset_y = dataset['y']
-    model = linear_model.LinearRegression()
+    model = LinearRegression()
     model.fit(dataset_x, dataset_y)
     prediction = model.predict([[df['Risk Tolerance'].get(0)]])
-    print(prediction)
+    #print(prediction)
     predictions.append(prediction)
-
-
-prediction_percentages = []
-
-
-
-st.write("Advait")
-st.write(predictions)
-
-# prediction = clf.predict(df)
-# prediction_proba = clf.predict_proba(df)
-
-# st.subheader('Class labels and their corresponding index number')
-# st.write(iris.target_names)
-
-# st.subheader('Prediction')
-# st.write(iris.target_names[prediction])
-# #st.write(prediction)
-
-# st.subheader('Prediction Probability')
-# st.write(prediction_proba)
-
-
+    
 
 
 
 import numpy as np
 
 returns = pd.read_csv('Assets.csv')
-
+#returns = pd.read_excel('roboDataset.xlsx')
 
 # the objective function is to minimize the portfolio risk
 def objective(weights): 
@@ -90,18 +72,23 @@ cons = (# The weights must sum up to one.
         {"type":"eq", "fun": lambda x: np.sum(x)-1}, 
         # This constraints says that the inequalities (ineq) must be non-negative.
         # The expected daily return of our portfolio and we want to be at greater than 0.002352
-        {"type": "ineq", "fun": lambda x: np.sum(returns.mean()*x)-(0.05)})
+        {"type": "ineq", "fun": lambda x: np.sum(returns.mean()*x)-(predictions[0])})
 # Every stock can get any weight from 0 to 1
 bounds = tuple((0,1) for x in range(returns.shape[1]))
 # Initialize the weights with an even split
 # In out case each stock will have 10% at the beginning
 guess = [1./returns.shape[1] for x in range(returns.shape[1])]
 optimized_results = minimize(objective, guess, method = "SLSQP", bounds=bounds, constraints=cons)
-optimized_results
+
+
+#optimized_results.x
 
 
 
-optimized_results.x
+
+
+
+returns = pd.read_csv('Assets.csv')
 symbols = ['U.S. Large Cap Stocks', 'U.S. Small Cap Stocks', 'Intl Dev Stocks',
            'Emerging Stocks', 'All U.S. Bonds', 'High-Yield U.S. Bonds',
            'Intl Bonds',  'Cash (T-Bill)', 'REIT', 'Gold' ]
@@ -111,7 +98,6 @@ final = pd.DataFrame(list(zip(symbols, optimized_results.x)),
 final
 
 st.line_chart(final.rename(columns={'Symbol':'index'}).set_index('index'))
-
 
 #ax = final.plot.bar(x='Symbol', y='Weight', rot=0)
 
@@ -124,10 +110,6 @@ price = df['Weight']
 fig = plt.figure(figsize =(10, 7))
  
 # Horizontal Bar Plot
-plt.bar(name, price)
- 
-# Show Plot
-plt.show()
 
 
 
@@ -140,32 +122,6 @@ def load_data(nrows):
     data = pd.read_csv('aajx1.csv', nrows=nrows)
     return data
 weekly_data = load_data(100)
-st.subheader('Weekly Demand Data')
-st.write(weekly_data)
-
-
-#line chart
-st.subheader("Line chart plotting High, low, open and close")
-df = pd.DataFrame(weekly_data[:30], columns = ['High','Low','Open','Close'])
-df.hist()
-st.line_chart(df)
-
-
-st.subheader("Line chart for low and high")
-chart_data = pd.DataFrame(weekly_data[:40], columns=['Low', 'High'])
-st.area_chart(chart_data)
-st.subheader("Line chart for open and close")
-chart_data = pd.DataFrame(weekly_data[:40], columns=['Open', 'Close'])
-st.area_chart(chart_data)
-
-
-
-#histogram
-st.subheader("Historgram comparing open and close")
-hist_data = [weekly_data['Close'],weekly_data['Open']]
-group_labels = ['Close', 'Open']
-fig = ff.create_distplot(hist_data, group_labels, bin_size=[10, 25])
-st.plotly_chart(fig, use_container_width=True)
 
 
 
