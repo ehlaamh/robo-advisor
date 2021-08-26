@@ -1,3 +1,4 @@
+from django.http.response import HttpResponse
 from django.shortcuts import render
 from roboadvisor.models import Userreg
 from django.contrib import messages
@@ -20,7 +21,10 @@ def loginpage(request):
         try:
             Userdetails= Userreg.objects.get(email= request.POST['email'], password = request.POST['password'])
             request.session['email']= Userdetails.email
-            return render(request,'robo.html')
+            return render(request,'home.html')
         except Userreg.DoesNotExist as e:
             messages.success(request,'Email or Password is invalid..!')
     return render(request,'login.html')
+
+def homepage(request):
+    return render(request,'home.html')

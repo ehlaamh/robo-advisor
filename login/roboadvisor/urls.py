@@ -18,6 +18,7 @@ from django.urls import path
 from .import views
 
 urlpatterns = [
-    path('reg',views.Userregistration, name='Regpage'),
-    path('',views.loginpage, name="LoginPage")
+    path('register',views.Userregistration, name='Regpage'),
+    path('login',views.loginpage, name="LoginPage"),
+    path('',views.homepage, name='HomePage')
 ]
