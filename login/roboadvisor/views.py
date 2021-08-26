@@ -14,3 +14,13 @@ def Userregistration(request):
            return render(request, 'register.html')
     else:
          return render(request, 'register.html')
+
+def loginpage(request):
+    if request.method=='POST':
+        try:
+            Userdetails= Userreg.objects.get(email= request.POST['email'], password = request.POST['password'])
+            request.session['email']= Userdetails.email
+            return render(request,'robo.html')
+        except Userreg.DoesNotExist as e:
+            messages.success(request,'Email or Password is invalid..!')
+    return render(request,'login.html')
