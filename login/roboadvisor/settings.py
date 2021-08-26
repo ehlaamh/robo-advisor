@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-z%)=b*_^l@s_zpco$kmrmez7sa6%!=3f$5u-r9=w_atqrf53au
 DEBUG = True
 
 ALLOWED_HOSTS = []
-STATICFILES_DIRS =["A:/Django/roboadvisor/static"]
+STATICFILES_DIRS =[os.path.join(BASE_DIR,'static'),]
 
 
 # Application definition

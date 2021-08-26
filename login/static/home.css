@@ -19,9 +19,7 @@ section{
     width: 85vw;
     margin: 0 auto;
 }
-.image{
-    background: url("person.jpg") center/cover no-repeat;
-}
+
 .content{
     background: #fff;
     display: flex;
@@ -79,18 +77,18 @@ section{
     margin: 0 auto;
 }
 .button {
-    background-color: #0e0d0dcc;
-    border: none;
-    color: rgb(252, 246, 246);
+    display: block;
+    width: 115px;
+    height: 32px;
+    background: #252523;
     padding: 10px;
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-  }
-  .button3 {border-radius: 4px;}
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    line-height: 25px;
+}
+
 /*****************/
 
 @media(max-width: 992px){
@@ -114,5 +112,5 @@ section{
     .content p{
         font-size: 14px;
     }
- 
+  
 }

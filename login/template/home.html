@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
@@ -5,13 +6,21 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>About Us</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+       
         {% load static %}
-        <link rel="stylesheet" href="{% static 'home.css' %}">
+	    <link rel="stylesheet" type="text/css" href="{% static 'home.css' %}">
+
         <script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
     </head>
     <body>
-        
-    <br>
+        <div
+        style="border-width: 0px; height: 20%; width: 100%; background-color: #CEE5D0; margin-left: 0px; margin-right: 0px; margin-top: 0px; margin-bottom: 0px;">
+        <h1 style="text-align: center; margin-top: 0px; font-family: Garamond;"><img
+                src="https://creazilla-store.fra1.digitaloceanspaces.com/emojis/43408/money-bag-emoji-clipart-md.png" ,
+                alt="symbol" width="85" height="85">FINANCIAL ROBO-ADVISOR<img
+                src="https://creazilla-store.fra1.digitaloceanspaces.com/emojis/43408/money-bag-emoji-clipart-md.png" ,
+                alt="symbol" width="85" height="85"></h1>
+    </div>  
     <br>
         <section>
             <div class = "image">
@@ -19,6 +28,7 @@
             </div>
 
             <div class = "content">
+                
                 <h2>Why Use an Automated Asset Allocator?</h2>
                 <span><!-- line here --></span>
 
@@ -27,8 +37,13 @@
                 <span><!-- line here --></span>
                 <p>This optimised tool is designed to make it easy for you to invest in a low-cost yet well diversified portfolio.</p>
                 <h2>Generate Portfolio Today!</h2>
-                <p><button class="button button3">Sign Up</button>
-                    <button class="button button3">Login</button></p>
+               <div>
+                <p>
+                    <a href="{% url 'Regpage' %}" class="button">SignUp</a>
+                        <br>
+                        <a href="{% url 'LoginPage' %}" class="button" >SignIn</a>
+                </p>
+               </div>
             </div>
         
         </section>
