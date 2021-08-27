@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from sklearn import datasets
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.datasets import 
+
 import seaborn as sns
 import os
 import csv
@@ -72,7 +72,7 @@ st.write(prediction_proba)
 
 import numpy as np
 
-returns = pd.read_csv('Assets.csv')
+returns = pd.read_csv('Assets.xls')
 
 
 # the objective function is to minimize the portfolio risk
