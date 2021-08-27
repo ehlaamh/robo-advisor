@@ -38,9 +38,7 @@ st.subheader('User Input parameters')
 st.write(df)
 
 st.write(" ## What is Risk Tolerance? ")
-st.write(" ### To put simply, risk tolerance is the level of risk an investor is willing to take. But being able to accurately gauge your appetite for risk can be tricky. Risk can mean opportunity, excitement or a shot at big gains—a 'you have to be in it to win it' mindset. But risk is also about tolerating the potential for losses, the ability to withstand market swings and the inability to predict what’s ahead.
-
-")
+st.write(" ### To put simply, risk tolerance is the level of risk an investor is willing to take. But being able to accurately gauge your appetite for risk can be tricky. Risk can mean opportunity, excitement or a shot at big gains—a 'you have to be in it to win it' mindset. But risk is also about tolerating the potential for losses, the ability to withstand market swings and the inability to predict what’s ahead.")
 
 st.write("How much risk can you afford? ")
 st.write("")
