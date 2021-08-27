@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 from sklearn import datasets
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.datasets import 
 import seaborn as sns
 import os
 import csv
@@ -13,7 +14,6 @@ from scipy.optimize import minimize
 st.write("""
 # Asset Allocation Web App
 ### Automated Robo-Advisor that uses characterisics of an investor to create custom portfolios of specific securities
-
 """)
 
 st.subheader('Prediction')
@@ -37,7 +37,13 @@ df = user_input_features()
 st.subheader('User Input parameters')
 st.write(df)
 
+st.write(" ## What is Risk Tolerance? ")
+st.write(" ### To put simply, risk tolerance is the level of risk an investor is willing to take. But being able to accurately gauge your appetite for risk can be tricky. Risk can mean opportunity, excitement or a shot at big gains—a 'you have to be in it to win it' mindset. But risk is also about tolerating the potential for losses, the ability to withstand market swings and the inability to predict what’s ahead.
 
+")
+
+st.write("How much risk can you afford? ")
+st.write("")
 
 
 
@@ -106,16 +112,16 @@ st.line_chart(final.rename(columns={'Symbol':'index'}).set_index('index'))
 #ax = final.plot.bar(x='Symbol', y='Weight', rot=0)
 
 df = final
- 
+
 name = df['Symbol']
 price = df['Weight']
- 
+
 # Figure Size
 fig = plt.figure(figsize =(10, 7))
- 
+
 # Horizontal Bar Plot
 plt.bar(name, price)
- 
+
 # Show Plot
 plt.show()
 
@@ -159,4 +165,4 @@ st.plotly_chart(fig, use_container_width=True)
 
 
 
-st.markdown("<span style=“background-color:#121922”>",unsafe_allow_html=True)
+st.markdown("<span style=“background-color:#121922”>",unsafe_allow_html=True) 
