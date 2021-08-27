@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from sklearn import datasets
 from sklearn.ensemble import RandomForestClassifier
-
+from sklearn.datasets import 
 import seaborn as sns
 import os
 import csv
@@ -38,10 +38,16 @@ st.subheader('User Input parameters')
 st.write(df)
 
 st.write(" ## What is Risk Tolerance? ")
-st.write(" ### To put simply, risk tolerance is the level of risk an investor is willing to take. But being able to accurately gauge your appetite for risk can be tricky. Risk can mean opportunity, excitement or a shot at big gains—a 'you have to be in it to win it' mindset. But risk is also about tolerating the potential for losses, the ability to withstand market swings and the inability to predict what’s ahead.")
+st.write(" ### To put simply, risk tolerance is the level of risk an investor is willing to take. But being able to accurately gauge your appetite for risk can be tricky. Risk can mean opportunity, excitement or a shot at big gains—a 'you have to be in it to win it' mindset. But risk is also about tolerating the potential for losses, the ability to withstand market swings and the inability to predict what’s ahead.
 
-st.write("How much risk can you afford? ")
-st.write("")
+")
+
+st.write("## How much risk can you afford? ")
+st.write("### When determining your risk tolerance, it's also important to understand your goals so you don't make a costly mistake. Your time horizon, or when you plan to withdraw the money you've invested, can greatly influence your approach to risk.")
+
+st.write("### Your time horizon depends on what you are saving for, when you expect to begin withdrawing the money and how long you need that money to last. Goals like saving for college or retirement have longer time horizons than saving for a vacation or a down payment on a house. In general, the longer your time horizon, the more risk you can assume because you have more time to recover from a loss. As you near your goal, you may want to reduce your risk and focus more on preserving what you have—rather than risking major losses at the worst possible time.")
+
+st.write("### One way to fine-tune your strategy is by dividing your investments into buckets, each with a separate goal. For example, a bucket created strictly for growth and income can be invested more aggressively than one that is set aside as an emergency fund.")
 
 
 
@@ -56,15 +62,15 @@ clf.fit(X, Y)
 prediction = clf.predict(df)
 prediction_proba = clf.predict_proba(df)
 
-st.subheader('Class labels and their corresponding index number')
-st.write(iris.target_names)
+#st.subheader('Class labels and their corresponding index number')
+#st.write(iris.target_names)
 
-st.subheader('Prediction')
-st.write(iris.target_names[prediction])
+#st.subheader('Prediction')
+#st.write(iris.target_names[prediction])
 #st.write(prediction)
 
-st.subheader('Prediction Probability')
-st.write(prediction_proba)
+#st.subheader('Prediction Probability')
+#st.write(prediction_proba)
 
 
 
@@ -72,7 +78,7 @@ st.write(prediction_proba)
 
 import numpy as np
 
-returns = pd.read_csv('Assets.xls')
+returns = pd.read_csv('Assets.csv')
 
 
 # the objective function is to minimize the portfolio risk
