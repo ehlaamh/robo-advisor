@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 from sklearn import datasets
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.datasets import 
 import seaborn as sns
 import os
 import csv
@@ -38,10 +37,7 @@ st.subheader('User Input parameters')
 st.write(df)
 
 st.write(" ## What is Risk Tolerance? ")
-st.write(" ### To put simply, risk tolerance is the level of risk an investor is willing to take. But being able to accurately gauge your appetite for risk can be tricky. Risk can mean opportunity, excitement or a shot at big gains—a 'you have to be in it to win it' mindset. But risk is also about tolerating the potential for losses, the ability to withstand market swings and the inability to predict what’s ahead.
-
-")
-
+st.write(" ### To put simply, risk tolerance is the level of risk an investor is willing to take. But being able to accurately gauge your appetite for risk can be tricky. Risk can mean opportunity, excitement or a shot at big gains—a 'you have to be in it to win it' mindset. But risk is also about tolerating the potential for losses, the ability to withstand market swings and the inability to predict what’s ahead.")
 st.write("## How much risk can you afford? ")
 st.write("### When determining your risk tolerance, it's also important to understand your goals so you don't make a costly mistake. Your time horizon, or when you plan to withdraw the money you've invested, can greatly influence your approach to risk.")
 
@@ -78,7 +74,7 @@ prediction_proba = clf.predict_proba(df)
 
 import numpy as np
 
-returns = pd.read_csv('Assets.csv')
+returns = pd.read_csv('Assets.xls')
 
 
 # the objective function is to minimize the portfolio risk
