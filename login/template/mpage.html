@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'mpage.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'slider.css' %}">
+ 
+    
+</head>
+<body>
+    <div class="sidebar">
+        <form method="POST" enctype="multipart/form-data" action="predict"></form>
+        <a >
+            <p>Age</p>
+            
+                {% csrf_token %}
+                        <div>
+                            <span id="rangeValue">0</span>
+                            <Input class="range" type="range" name ="age" value="0" min="0" max="100" onChange="rangeSlide(this.value)" onmousemove="rangeSlide(this.value)"></Input>
+                        </div>
+                        <script type="text/javascript">
+                            function rangeSlide(value) {
+                                document.getElementById('rangeValue').innerHTML = value;
+                            }
+                        </script>
+        </a>
+        <a >
+            <p>Risk Tolerence</p>
+                    
+                    <div>
+                        <span id="rangert">0</span>
+                        <Input class="range" type="range" name="rt" value="0" min="0.00" max="100.00" onChange="rangert(this.value)" onmousemove="rangert(this.value)"></Input>
+                    </div>
+                    <script type="text/javascript">
+                        function rangert(value) {
+                            document.getElementById('rangert').innerHTML = value;
+                        }
+                    </script>
+        </a>
+        <a >
+            <p>Number of years you want to invest</p>
+                   
+                    <div>
+                        <span id="rangeny">1</span>
+                        <Input class="range" type="range" name="ny" value="0" min="1" max="25" onChange="rangeny(this.value)" onmousemove="rangeny(this.value)"></Input>
+                    </div>
+                    <script type="text/javascript">
+                        function rangeny(value) {
+                            document.getElementById('rangeny').innerHTML = value;
+                        }
+                    </script> 
+        </a>
+        <a >
+            <p>Amount to invest</p>
+                       
+                        <div>
+                            <span id="rangeai">1000</span>
+                            <Input class="range" type="range" name="ai" value="0" min="1000" max="100000" onChange="rangeai(this.value)" onmousemove="rangeai(this.value)"></Input>
+                        </div>
+                        <script type="text/javascript">
+                            function rangeai(value) {
+                                document.getElementById('rangeai').innerHTML = value;
+                            }
+                        </script>
+        </a>
+        <input class="btn" type="submit" value="submit"> 
+      </div>
+    </form>
+      <div class="content">
+        <h1>Asset Allocation Web App</h2>
+        <h4>Automated Robo-Advisor that uses characterisics of an investor to create custom portfolios of specific securities</h4>
+        <br>
+        <h3>What is Risk Tolerance?</h3>
+        <h4>To put simply, risk tolerance is the level of risk an investor is willing to take. But being able to accurately gauge your appetite for risk can be tricky. Risk can mean opportunity, excitement or a shot at big gains—a 'you have to be in it to win it' mindset. But risk is also about tolerating the potential for losses, the ability to withstand market swings and the inability to predict what’s ahead.</h4>
+        <br>
+        <h3>How much risk can you afford?</h3>
+        <h4><p>When determining your risk tolerance, it's also important to understand your goals so you don't make a costly mistake. Your time horizon, or when you plan to withdraw the money you've invested, can greatly influence your approach to risk.</p>
+        <p>Your time horizon depends on what you are saving for, when you expect to begin withdrawing the money and how long you need that money to last. Goals like saving for college or retirement have longer time horizons than saving for a vacation or a down payment on a house. In general, the longer your time horizon, the more risk you can assume because you have more time to recover from a loss. As you near your goal, you may want to reduce your risk and focus more on preserving what you have—rather than risking major losses at the worst possible time.</p>
+        <p>One way to fine-tune your strategy is by dividing your investments into buckets, each with a separate goal. For example, a bucket created strictly for growth and income can be invested more aggressively than one that is set aside as an emergency fund.</p>
+    </h4>
+      </div>
+   
+</body>
+</html>

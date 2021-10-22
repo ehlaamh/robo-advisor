@@ -22,7 +22,7 @@ st.sidebar.header('User Input Parameters')
 def user_input_features():
     age = st.sidebar.slider('Age', 18, 50, 100)
     risk_tol = st.sidebar.slider('Risk Tolerance', 0.0, 50.0, 100.0)
-    years_to_invest = st.sidebar.slider('Number of years you want to invest', 1, 5, 10)
+    years_to_invest = st.sidebar.slider('Number of years you want to invest', 1,5, 10)
     money_invest = st.sidebar.slider('Amount to Invest (in ₹)', 1000.0, 50000.0, 100000.0)
     data = {'Age': age,
             'Risk Tolerance': risk_tol,

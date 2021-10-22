@@ -1,0 +1,77 @@
+body {
+  margin: 0;
+  font-family: "Lato", sans-serif;
+}
+.range{
+  width: 100%;
+}
+.btn {
+  margin-left: 10px;
+  position: absolute;
+  
+  background-color: #000000;
+  color: rgb(247, 243, 243);
+  font-size: 20px;
+  padding: 14px 28px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: rgb(109, 105, 105);
+  color: white;
+}
+
+.sidebar {
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  width: 300px;
+  background-color: #e69d9d;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+ 
+.sidebar a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+div.content {
+  text-align: center;
+  margin-left: 350px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}

@@ -20,5 +20,7 @@ from .import views
 urlpatterns = [
     path('register',views.Userregistration, name='Regpage'),
     path('login',views.loginpage, name="LoginPage"),
-    path('',views.homepage, name='HomePage')
+    path('',views.homepage, name='HomePage'),
+    path('mpage',views.mpage, name='MPage'),
+    path('predict',views.predict, name='predict')
 ]
