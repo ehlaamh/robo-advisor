@@ -22,7 +22,7 @@ def loginpage(request):
         try:
             Userdetails= Userreg.objects.get(email= request.POST['email'], password = request.POST['password'])
             request.session['email']= Userdetails.email
-            return redirect("http://192.168.2.15:8501")
+            return redirect("http://192.168.2.5:8501")
         except Userreg.DoesNotExist as e:
             messages.success(request,'Email or Password is invalid..!')
     return render(request,'login.html')

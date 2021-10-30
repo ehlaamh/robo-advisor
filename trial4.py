@@ -24,6 +24,15 @@ st.write("""
 st.subheader('Prediction')
 
 def risk_calc():
+ st.subheader("To calculate risk tolerance for an optimum portfolio, choose from the options below and adjust the values on the sliderbar to the values that seem closest to your profile")
+ 
+ #(""" range(1,6)
+ #dependants = st.select_slider("Number of dependents: ", options = my_range, value = 10)
+ #st.write("You chose: %s ", %dependants)
+ #myy_range = range(0,1000000)
+ #monthly_income = st.select_slider("Monthly Income: ", options = myy_range, value = 10)
+  # st.write("You chose: %s ", %monthly_income) """)
+
  dependants = st.sidebar.slider('Number of dependents', 0, 3, 6)
  monthly_income = st.sidebar.slider('Monthly Income (in ₹):', 0, 500000, 1000000)
  page_names= ['Safety', 'Income', 'Gains']
@@ -84,19 +93,27 @@ def risk_calc():
   risk+=70
  elif monthly_income >850000 and monthly_income <=100000:
   risk+=80
-risk_calc()
+ return risk
+
+ab =risk_calc()
+st.sidebar.write('Your Risk Tolerance is:')
+st.sidebar.write(ab)
+
 
 st.sidebar.header('User Input Parameters')
 
 def user_input_features():
-    age = st.sidebar.slider('Age', 18, 50, 100)
-    risk_tol = st.sidebar.slider('Risk Tolerance', 0.0, 15.0, 30.0)
-    years_to_invest = st.sidebar.slider('Number of years you want to invest', 1, 10, 25)
-    money_invest = st.sidebar.slider('Amount to Invest (in ₹)', 1000.0, 50000.0, 100000.0)
-    data = {'Age': age,
+    #age = st.sidebar.slider('Age', 18, 50, 100)
+    #risk_tol= range(0, 100)
+    #number = st.select_slider("Risk Tolerance: ", options = risk_tol, value = 10)
+    risk_tol = st.sidebar.slider('Risk Tolerance', 0, 50, 100)
+    #years_to_invest = st.sidebar.slider('Number of years you want to invest', 1, 10, 25)
+    #money_invest = st.sidebar.slider('Amount to Invest (in ₹)', 1000.0, 50000.0, 100000.0)
+    data = {#'Age': age,
             'Risk Tolerance': risk_tol,
-            'Number of investing years': years_to_invest,
-            'Amount to Invest (in ₹)': money_invest}
+            #'Number of investing years': years_to_invest,
+            #'Amount to Invest (in ₹)': money_invest
+            }
     features = pd.DataFrame(data, index=[0])
     return features
    
