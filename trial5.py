@@ -34,7 +34,7 @@ def risk_calc():
   # st.write("You chose: %s ", %monthly_income) """)
 
  dependants = st.sidebar.slider('Number of dependents', 0, 3, 6)
- monthly_income = st.sidebar.slider('Monthly Income (in ₹):', 0, 500000, 1000000)
+ monthly_income = st.sidebar.slider('Monthly Income (in ₹):', 0, 300000, 500000)
  page_names= ['Safety', 'Income', 'Gains']
  page= st.radio('Investment Goals:', page_names)
 
@@ -96,8 +96,14 @@ def risk_calc():
  return risk
 
 ab =risk_calc()
-st.sidebar.write('Your Risk Tolerance is:')
-st.sidebar.write(ab)
+
+if ab <0:
+    st.sidebar.write('Your Risk Tolerance is:')
+    st.sidebar.write(ab)
+    st.sidebar.warning('Your Risk Tolerance is very low.')
+else:
+        st.sidebar.write('Your Risk Tolerance is:')
+        st.sidebar.write(ab)
 
 
 st.sidebar.header('User Input Parameters')
@@ -106,11 +112,20 @@ def user_input_features():
     #age = st.sidebar.slider('Age', 18, 50, 100)
     #risk_tol= range(0, 100)
     #number = st.select_slider("Risk Tolerance: ", options = risk_tol, value = 10)
-    risk_tol = st.sidebar.slider('Risk Tolerance', 0, 50, 100)
+    old = st.sidebar.slider('Risk Tolerance', 0, 50, 120)
+    OldMin = -80
+    OldMax = 120
+    NewMax = 13
+    NewMin=0
+    def new(OldValue):
+        NewValue = (((OldValue - OldMin) * (NewMax - NewMin)) / (OldMax - OldMin)) + NewMin
+        return NewValue
+    a= new(old)
+    print(a)
     #years_to_invest = st.sidebar.slider('Number of years you want to invest', 1, 10, 25)
     #money_invest = st.sidebar.slider('Amount to Invest (in ₹)', 1000.0, 50000.0, 100000.0)
     data = {#'Age': age,
-            'Risk Tolerance': risk_tol,
+            'Risk Tolerance': a,
             #'Number of investing years': years_to_invest,
             #'Amount to Invest (in ₹)': money_invest
             }
