@@ -189,7 +189,7 @@ final = pd.DataFrame(list(zip(symbols, optimized_results.x)),
                        columns=['Symbol', 'Weight'])
 final
 
-st.line_chart(final.rename(columns={'Symbol':'index'}).set_index('index'))
+st.line_chart(final.rename(columns={'Symbol':'index'}).set_index('index'),width = 900,height=500)
 
 #ax = final.plot.bar(x='Symbol', y='Weight', rot=0)
 
@@ -199,7 +199,7 @@ name = df['Symbol']
 price = df['Weight']
  
 # Figure Size
-fig = plt.figure(figsize =(10, 7))
+fig = plt.figure(figsize =(14, 10))
  
 # Horizontal Bar Plot
 
